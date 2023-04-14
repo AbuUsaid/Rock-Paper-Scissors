@@ -1,4 +1,8 @@
-console.log('#welcome#\n_________');
+/*
+Note: This file contains additional code written for testing the programmer's logic during development. It is not used in the main project and can be safely deleted. 
+
+The purpose of this file is to ensure the code is working as intended before incorporating it into the main project. Any changes made to the main project should not affect this file.
+*/
 
 let getComputerChoice = () => {
   let randomNum = Math.floor(Math.random() * 3);
