@@ -6,19 +6,22 @@ let getComputerChoice = () => {
   return options[randomNum];
 };
 
+let computerSelection = getComputerChoice();
+
 let playerSelection = prompt(
   "Let's play rock-paper-scissors! Please choose 'rock', 'paper', or 'scissors'."
 ).toLowerCase();
 
 function playRound(user, comp) {
-  //   console.log(`The player choice is ${user}, the comp choice is ${comp()}`);
+  console.log(`The player choice is ${user}, the comp choice is ${comp()}`);
 
   /*
-   * paper beats scissors
-   * scissors beats paper
+   * paper beats rock
    * rock beats scissors
+   * scissors beats paper
    */
-  if (comp() === 'rock') {
+
+  if (comp === 'rock') {
     if (user === 'rock') {
       return "It's a tie for rock!";
     } else if (user === 'paper') {
@@ -26,7 +29,7 @@ function playRound(user, comp) {
     } else if (user === 'scissors') {
       return 'You Lose ! Rock beats Scissors';
     }
-  } else if (comp() === 'paper') {
+  } else if (comp === 'paper') {
     if (user === 'rock') {
       return 'You Lose ! Paper beats Rock';
     } else if (user === 'paper') {
@@ -34,7 +37,7 @@ function playRound(user, comp) {
     } else if (user === 'scissors') {
       return 'You Won ! Scissors beats Paper';
     }
-  } else if (comp() === 'scissors') {
+  } else if (comp === 'scissors') {
     if (user === 'rock') {
       return 'You Won ! Rock beats Scissors';
     } else if (user === 'paper') {
@@ -43,8 +46,8 @@ function playRound(user, comp) {
       return "It's a tie for scissors!";
     }
   }
-}
+} //playRound()
 
-console.log(playRound(playerSelection, getComputerChoice));
+console.log(playRound(playerSelection, computerSelection));
 
 //The above function is working fine
