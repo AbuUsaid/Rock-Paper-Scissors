@@ -6,6 +6,20 @@ let getComputerChoice = () => {
   return options[randomNum];
 };
 
+let playerSelection = '';
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    playerSelection = button.id;
+    let computerSelection = getComputerChoice();
+
+    console.log(
+      `player selection: ${playerSelection}\ncomp selection: ${computerSelection}`
+    );
+  });
+});
+
 //--------------------
 /*
  * paper beats rock🪨📃✂️
@@ -13,6 +27,7 @@ let getComputerChoice = () => {
  * scissors beats paper
  */
 
+/*
 let playRound = (user, comp) => {
   console.log(`The player choice is ${user}, the comp choice is ${comp}`);
 
@@ -41,23 +56,25 @@ let playRound = (user, comp) => {
       return "It's a tie for scissors!✂️";
     }
   }
-}; //playRound()
+}; //playRound() end
+*/
 
+/*
 //score object
 let score = {
   user: 0,
   computer: 0,
   tie: 0,
 };
+*/
 
 //game of 5 rounds
-for (let i = 0; i < 5; i++) {
-  let playerSelection = prompt(
-    "Let's play rock🪨-paper📃-scissors ✂️! \nPlease choose 'rock', 'paper', or 'scissors'."
-  ).toLowerCase();
+// for (let i = 0; i < 5; i++) {
+// let playerSelection = prompt(
+//   "Let's play rock🪨-paper📃-scissors ✂️! \nPlease choose 'rock', 'paper', or 'scissors'."
+// ).toLowerCase();
 
-  let computerSelection = getComputerChoice();
-
+/*
   let result = playRound(playerSelection, computerSelection);
   console.log(result);
 
@@ -80,13 +97,18 @@ for (let i = 0; i < 5; i++) {
   ) {
     score.tie++;
   }
-}
+  */
 
+// } // for loop ends
+
+/*
 console.log(
   `🏁Final score🏁: User ${score.user} - Computer ${score.computer} - Ties ${score.tie}`
 );
+*/
 
 //declaring winnner based on the score
+/*
 if (score.user > score.computer) {
   console.log('You win the game! 🏆');
 } else if (score.user < score.computer) {
@@ -94,3 +116,4 @@ if (score.user > score.computer) {
 } else {
   console.log("It's a tie! 🤝");
 }
+*/
