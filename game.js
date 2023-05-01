@@ -83,20 +83,10 @@ let game = () => {
 
       roundCount++;
       console.log(roundCount);
-
-      // const scoreDiv = document.getElementById('score');
-      // scoreDiv.innerHTML = `🏁Final score🏁: User ${score.user} - Computer ${score.computer} - Ties ${score.tie}`;
     }); //buttonAddEventListener
   }); //button
 }; //game() ends
 
-// for (let i = 1; i <= 5; i++) {
-//   if (i <= 5) {
-//     game();
-//   } else {
-//     console.log('End of the 5 round');
-//   }
-// }
 game();
 
 let gameover = () => {
