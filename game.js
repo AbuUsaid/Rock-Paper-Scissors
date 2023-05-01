@@ -11,62 +11,88 @@ let playRound = (user, comp) => {
 
   if (comp === 'rock') {
     if (user === 'rock') {
+      score.tie++;
       return "It's a tie for rock!🪨";
     } else if (user === 'paper') {
+      score.user++;
       return 'You Won! Paper📃 beats Rock🪨';
     } else if (user === 'scissors') {
+      score.computer++;
       return 'You Lose! Rock🪨 beats Scissors ✂️';
     }
   } else if (comp === 'paper') {
     if (user === 'rock') {
+      score.computer++;
       return 'You Lose! Paper📃 beats Rock🪨';
     } else if (user === 'paper') {
+      score.tie++;
       return "It's a tie for paper!📃";
     } else if (user === 'scissors') {
+      score.user++;
       return 'You Won! Scissors ✂️ beats Paper📃';
     }
   } else if (comp === 'scissors') {
     if (user === 'rock') {
+      score.user++;
       return 'You Won! Rock🪨 beats Scissors ✂️';
     } else if (user === 'paper') {
+      score.computer++;
       return 'You Lose! Scissors ✂️ beats Paper📃';
     } else if (user === 'scissors') {
+      score.tie++;
       return "It's a tie for scissors!✂️";
     }
   }
 }; //playRound() end
 
-let playerSelection = '';
-const buttons = document.querySelectorAll('button');
+let score = {
+  //score object
+  user: 0,
+  computer: 0,
+  tie: 0,
+};
 
-buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    playerSelection = button.id;
+let roundCount = 0;
+let game = () => {
+  let playerSelection = '';
+  const buttons = document.querySelectorAll('button');
 
-    let computerSelection = getComputerChoice();
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      playerSelection = button.id;
 
-    console.log(
-      `player selection: ${playerSelection}\ncomp selection: ${computerSelection}`
-    );
+      let computerSelection = getComputerChoice();
 
-    const content = document.getElementById('content');
-    // const startMsg = document.createElement('p');
-    // const startMsgText = document.createTextNode('HI This is text node');
-    // startMsg.appendChild(startMsgText);
-    // content.appendChild(startMsg);
+      console.log(
+        `player selection: ${playerSelection}\ncomp selection: ${computerSelection}`
+      );
+      const content = document.getElementById('content');
 
-    let selectionDiv = document.getElementById('selection');
-    selectionDiv.innerHTML = `player selection: ${playerSelection}<br>Computer selection: ${computerSelection}`;
+      if (roundCount >= 5) return;
 
-    let result = playRound(playerSelection, computerSelection);
-    console.log(result);
+      let selectionDiv = document.getElementById('selection');
+      selectionDiv.innerHTML = `player selection: ${playerSelection}<br>Computer selection: ${computerSelection}`;
 
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = result;
+      let result = playRound(playerSelection, computerSelection);
+      console.log(result);
 
-    // const resultP = document.createElement('p');
-    // const resultPText = document.innerHTML(result);
-    // resultP.appendChild(resultPText);
-    // resultDiv.appendChild(resultP);
-  });
-});
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = result;
+
+      roundCount++;
+      console.log(roundCount);
+
+      // const scoreDiv = document.getElementById('score');
+      // scoreDiv.innerHTML = `🏁Final score🏁: User ${score.user} - Computer ${score.computer} - Ties ${score.tie}`;
+    }); //buttonAddEventListener
+  }); //button
+}; //game() ends
+
+// for (let i = 1; i <= 5; i++) {
+//   if (i <= 5) {
+//     game();
+//   } else {
+//     console.log('End of the 5 round');
+//   }
+// }
+game();
