@@ -68,7 +68,9 @@ let game = () => {
       );
       const content = document.getElementById('content');
 
-      if (roundCount >= 5) return;
+      if (roundCount >= 5) {
+        return gameover();
+      }
 
       let selectionDiv = document.getElementById('selection');
       selectionDiv.innerHTML = `player selection: ${playerSelection}<br>Computer selection: ${computerSelection}`;
@@ -96,3 +98,24 @@ let game = () => {
 //   }
 // }
 game();
+
+let gameover = () => {
+  const scoreDiv = document.getElementById('score');
+  scoreDiv.innerHTML = `🏁Final score🏁: User ${score.user} - Computer ${score.computer} - Ties ${score.tie}`;
+
+  //declaring winnner based on the score
+  const announcementDiv = document.getElementById('announcement');
+
+  if (score.user > score.computer) {
+    announcementDiv.innerHTML = `You win the game! 🏆`;
+  } else if (score.user < score.computer) {
+    announcementDiv.innerHTML = `You lose the game! 💤`;
+  } else {
+    announcementDiv.innerHTML = ` It's a tie! 🤝`;
+  }
+
+  /**once the roundCount reaches five the buttons will get disabled */
+  document.getElementById('rock').disabled = true;
+  document.getElementById('paper').disabled = true;
+  document.getElementById('scissors').disabled = true;
+};
