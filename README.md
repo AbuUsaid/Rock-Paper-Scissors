@@ -2,7 +2,7 @@
 
 A simple implementation of grade-school classic “rock paper scissors”.
 
-![Screenshot of a Rock-Paper-Scissors game in action](assets\game_screenshot.png)
+![Screenshot of a Rock-Paper-Scissors game in action](assets/game_screenshot.png)
 
 The game is implemented using HTML, CSS, and JavaScript. The HTML file (index.html) contains the game interface, which consists of three buttons for the user to select their choice, as well as a container to display the current round results and score.
 
