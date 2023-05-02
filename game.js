@@ -7,7 +7,7 @@ let getComputerChoice = () => {
 };
 
 let playRound = (user, comp) => {
-  console.log(`The player choice is ${user}, the comp choice is ${comp}`);
+  // console.log(`The player choice is ${user}, the comp choice is ${comp}`);
 
   if (comp === 'rock') {
     if (user === 'rock') {
@@ -63,9 +63,9 @@ let game = () => {
 
       let computerSelection = getComputerChoice();
 
-      console.log(
-        `player selection: ${playerSelection}\ncomp selection: ${computerSelection}`
-      );
+      // console.log(
+      //   `player selection: ${playerSelection}\ncomp selection: ${computerSelection}`
+      // );
       const content = document.getElementById('content');
 
       if (roundCount >= 5) {
@@ -76,13 +76,13 @@ let game = () => {
       selectionDiv.innerHTML = `player selection: ${playerSelection}<br>Computer selection: ${computerSelection}`;
 
       let result = playRound(playerSelection, computerSelection);
-      console.log(result);
+      // console.log(result);
 
       const resultDiv = document.getElementById('result');
       resultDiv.innerHTML = result;
 
       roundCount++;
-      console.log(roundCount);
+      // console.log(roundCount);
     }); //buttonAddEventListener
   }); //button
 }; //game() ends
